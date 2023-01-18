@@ -31,13 +31,13 @@ def home(request):
             'percent': percent,
             'total': total
         }
-        return render(request, 'template/Quiz/result.html', context)
+        return render(request, 'templates/Quiz/result.html', context)
     else:
         questions = QuesModel.objects.all()
         context = {
             'questions': questions
         }
-        return render(request, 'template/Quiz/home.html', context)
+        return render(request, 'templates/Quiz/home.html', context)
 
 
 def addQuestion(request):
@@ -51,7 +51,7 @@ def addQuestion(request):
             context = {
                 'form': form
             }
-            return render(request, 'template/Quiz/addQuestion.html', context)
+            return render(request, 'templates/Quiz/addQuestion.html', context)
         else:
             return redirect('home')
 
@@ -69,7 +69,7 @@ def registerPage(request):
         context = {
             'form': form,
         }
-        return render(request, 'Quiz/register.html', context)
+        return render(request, 'templates/Quiz/register.html', context)
 
 
 def loginPage(request):
@@ -84,7 +84,7 @@ def loginPage(request):
                 login(request, user)
                 return redirect('/')
             context = {}
-        return render(request, 'template/Quiz/login.html', context)
+        return render(request, 'templates/Quiz/login.html', context)
 
 
 def logoutPage(request):
